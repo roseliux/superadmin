@@ -17,8 +17,15 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install libmysqlclient-dev libpq-dev libsqlite3-dev libncurses5-dev
-    - name: Build and test with Rake
+    - name: Build and create DB
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
+        bin/rails db:setup
+        yarn add @rails/webpacker@next
+        bundle exec rails webpacker:install
+    - name: Run tests
+      env:
+        RAILS_ENV: test
+      run: |
         bundle exec rake
