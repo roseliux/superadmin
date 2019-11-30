@@ -1,6 +1,6 @@
 name: Ruby
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -13,6 +13,10 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
+    - name: Install required package
+      run: |
+        sudo apt-get update
+        sudo apt-get install libmysqlclient-dev libpq-dev libsqlite3-dev libncurses5-dev
     - name: Build and test with Rake
       run: |
         gem install bundler
