@@ -1,6 +1,6 @@
 name: Ruby
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build:
@@ -22,6 +22,13 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
         bin/rails db:setup
+    - name: Yarn setup
+      run: |
+        rm -rf node_modules
+        rails assets:clobber
+        yarn
+        rails assets:precompile
+        yarn install --check-files
         yarn add @rails/webpacker@next
         bundle exec rails webpacker:install
     - name: Run tests
