@@ -30,6 +30,7 @@ jobs:
         bundle install --jobs 4 --retry 3
     - name: Yarn setup
       run: |
+        yarn add @rails/webpacker@next
         bundle exec rails webpacker:install
     - name: Run tests
       env:
