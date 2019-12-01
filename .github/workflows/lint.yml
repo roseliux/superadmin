@@ -1,4 +1,4 @@
-name: RuboCop and eslint
+name: RuboCop ans eslint
 
 on: [push]
 
@@ -31,5 +31,4 @@ jobs:
       run: bundle exec rubocop --parallel
     - name: Run ESLint
       uses: stefanoeb/eslint-action@1.0.0
-      with:
-        check-name: eslint vendor/assets/javascript
+    - run: eslint vendor/assets/javascript
