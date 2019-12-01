@@ -7,16 +7,25 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [12.x]
+
     steps:
     - uses: actions/checkout@v1
     - name: Set up Ruby 2.6
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+      run: npm install -g yarn
     - name: Install required package
       run: |
         sudo apt-get update
-        sudo apt-get install libmysqlclient-dev libpq-dev libsqlite3-dev libncurses5-dev yarn
+        sudo apt-get install libmysqlclient-dev libpq-dev libsqlite3-dev libncurses5-dev
     - name: Build and create DB
       run: |
         gem install bundler
@@ -24,11 +33,6 @@ jobs:
         bin/rails db:setup
     - name: Yarn setup
       run: |
-        rm -rf node_modules
-        rails assets:clobber
-        yarn
-        rails assets:precompile
-        yarn install --check-files
         yarn add @rails/webpacker@next
         bundle exec rails webpacker:install
     - name: Run tests
