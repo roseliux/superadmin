@@ -9,14 +9,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Set up Ruby 2.6.5
+    - name: Set up Ruby 2.6
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
     - name: Install required package
       run: |
         sudo apt-get update
-        sudo apt-get install libmysqlclient-dev libpq-dev libsqlite3-dev libncurses5-dev
+        sudo apt-get install libmysqlclient-dev libpq-dev libsqlite3-dev libncurses5-dev yarn
     - name: Build and create DB
       run: |
         gem install bundler
