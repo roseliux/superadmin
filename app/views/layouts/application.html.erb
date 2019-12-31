@@ -18,10 +18,10 @@
 
   <body id="page-top">
     <div id="wrapper">
-      <%= render 'layouts/navigations/sidebar' %>
+      <%= render 'layouts/navigations/sidebar' if current_user %>
       <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
-          <%= render 'layouts/navigations/topbar' %>
+          <%= render 'layouts/navigations/topbar' if current_user %>
           <div class="container-fluid">
             <%= yield %>
           </div>
