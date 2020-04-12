@@ -156,6 +156,8 @@ GEM
       rexml
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
+    rubocop-minitest (0.8.1)
+      rubocop (>= 0.74)
     rubocop-performance (1.5.2)
       rubocop (>= 0.71.0)
     rubocop-rails (2.5.2)
@@ -231,6 +233,7 @@ DEPENDENCIES
   puma (~> 4.3)
   rails (~> 6.0.1)
   rubocop
+  rubocop-minitest
   rubocop-performance
   rubocop-rails
   sass-rails (>= 6)
