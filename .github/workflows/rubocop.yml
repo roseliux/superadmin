@@ -16,6 +16,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install libmysqlclient-dev libpq-dev libsqlite3-dev libncurses5-dev
+        gem install bundler
     - name: Cache gems
       uses: actions/cache@v1
       with:
