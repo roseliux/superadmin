@@ -31,6 +31,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 gem "rubocop", require: false
 gem "rubocop-performance", require: false
 gem "rubocop-rails", require: false
+gem "rubocop-minitest", require: false
 
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
