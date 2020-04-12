@@ -16,6 +16,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install libmysqlclient-dev libpq-dev libsqlite3-dev libncurses5-dev
+        gem install bundler
     - name: Cache gems
       uses: actions/cache@v1
       with:
@@ -25,6 +26,7 @@ jobs:
           ${{ runner.os }}-gem-
     - name: Install gems
       run: |
+        bundle update --bundler
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
     - name: Run RuboCop
