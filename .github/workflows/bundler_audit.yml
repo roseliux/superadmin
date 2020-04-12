@@ -7,7 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: 'Bundler Audit'
-        uses: andrewmcodes/bundler-audit-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Bundler Audit
+        run: |
+          sudo gem install bundler-audit
+      - name: Run Bundler Audit
+        run: |
+          bundle-audit check --update
