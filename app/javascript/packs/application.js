@@ -16,3 +16,6 @@ import 'assets/stylesheets/sb-admin-2.min.css'
 
 import '@fortawesome/fontawesome-free/js/all'
 import '@fortawesome/fontawesome-free/css/all.css'
+
+// Code to load your Stimulus controller files
+import "controllers"
