@@ -16,20 +16,23 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   </head>
 
-  <body id="page-top">
-    <div id="wrapper">
-      <%= render 'layouts/navigations/sidebar' if current_user %>
-      <div id="content-wrapper" class="d-flex flex-column">
-        <div id="content">
-          <%= render 'layouts/navigations/topbar' if current_user %>
-          <div class="container-fluid">
-            <%= yield %>
+    
+  <body class="bg-gradient-primary">
+
+    <div class="container">
+      <!-- Outer Row -->
+      <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+          <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+              <!-- Nested Row within Card Body -->
+              <div class="row">
+                <%= yield %>
+              </div>
+            </div>
           </div>
         </div>
-        <%= render 'layouts/footer' %>
       </div>
     </div>
-
-    <%= render 'layouts/sb_extras' %>
   </body>
 </html>
