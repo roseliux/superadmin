@@ -15,10 +15,6 @@ jobs:
     - name: Install required package
       run: |
         sudo apt-get update
-        sudo apt-get install libmysqlclient-dev libpq-dev libsqlite3-dev libncurses5-dev
-        gem install bundler
-    - name: Install gems
-      run: |
-        bundle install rubocop
+        gem install rubocop rubocop-performance rubocop-rails rubocop-minitest
     - name: Run RuboCop
       run: bundle exec rubocop --parallel
