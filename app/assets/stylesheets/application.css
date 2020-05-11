@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.alert-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
