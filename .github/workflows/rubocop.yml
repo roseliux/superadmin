@@ -17,15 +17,8 @@ jobs:
         sudo apt-get update
         sudo apt-get install libmysqlclient-dev libpq-dev libsqlite3-dev libncurses5-dev
         gem install bundler
-    - name: Cache gems
-      uses: actions/cache@v1
-      with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-gem-
     - name: Install gems
       run: |
-        bundle install rubocop rubocop-performance rubocop-rails rubocop-minitest
+        bundle install rubocop
     - name: Run RuboCop
       run: bundle exec rubocop --parallel
