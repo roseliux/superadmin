@@ -1,7 +1,9 @@
-
+DONE add styling into devise views.
+DONE fix sidebar hide
+dockerize
+install postgresql
+deploy to heroku
 https://iridakos.com/programming/2019/04/04/creating-chat-application-rails-websockets
-
-modify register page to look like:
-file:///Users/rdurazo/Downloads/startbootstrap-sb-admin-2-gh-pages/register.html
-
-
+http://expo.stimulusreflex.com/demos/tabular
+https://github.com/hopsoft/stimulus_reflex
+https://docs.stimulusreflex.com/
