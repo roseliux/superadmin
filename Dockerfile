@@ -21,3 +21,6 @@ RUN bundle install -j $(nproc)
 
 RUN mkdir -p /app
 WORKDIR /app
+
+COPY build.sh ./build.sh
+RUN chmod +x build.sh
