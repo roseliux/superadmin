@@ -7,6 +7,14 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:11.6-alpine
+        ports:
+          - 5432:5432
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
     - uses: actions/checkout@v1
     - name: Set up Ruby 2.6
@@ -16,7 +24,7 @@ jobs:
     - name: Install required package
       run: |
         sudo apt-get update
-        sudo apt-get install libmysqlclient-dev libpq-dev libsqlite3-dev libncurses5-dev yarn
+        sudo apt-get -yqq install libmysqlclient-dev libpq-dev libncurses5-dev yarn
     - name: Cache gems
       uses: actions/cache@v1
       with:
@@ -34,6 +42,7 @@ jobs:
         bundle exec rails webpacker:install
     - name: Run tests
       env:
+        POSTGRES_HOST: localhost
         RAILS_ENV: test
       run: |
         bundle exec rails db:setup
