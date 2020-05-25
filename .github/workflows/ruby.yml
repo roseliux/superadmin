@@ -42,7 +42,7 @@ jobs:
         bundle exec rails webpacker:install
     - name: Run tests
       env:
-        PGHOST: localhost
+        POSTGRES_HOST: localhost
         RAILS_ENV: test
       run: |
         bundle exec rails db:setup

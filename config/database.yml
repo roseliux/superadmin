@@ -1,7 +1,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: postgres
+  host: <%= ENV['POSTGRES_HOST'] || "postgres" %>
   username: postgres
   password:
   pool: 5
@@ -14,7 +14,7 @@ development:
 test:
   <<: *default
   database: superadmin_test
-  host: localhost
+
 
 production:
   <<: *default
