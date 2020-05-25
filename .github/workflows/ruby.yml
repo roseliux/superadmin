@@ -24,7 +24,7 @@ jobs:
     - name: Install required package
       run: |
         sudo apt-get update
-        sudo apt-get install libmysqlclient-dev libpq-dev libsqlite3-dev libncurses5-dev yarn
+        sudo apt-get -yqq install libmysqlclient-dev libpq-dev libncurses5-dev yarn
     - name: Cache gems
       uses: actions/cache@v1
       with:
@@ -42,6 +42,7 @@ jobs:
         bundle exec rails webpacker:install
     - name: Run tests
       env:
+        PGHOST: localhost
         RAILS_ENV: test
       run: |
         bundle exec rails db:setup
