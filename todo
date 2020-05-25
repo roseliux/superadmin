@@ -2,7 +2,7 @@ DONE add styling into devise views.
 DONE fix sidebar hide
 DONE dockerize
 DONE install postgresql
-deploy to heroku
+DONE deploy to heroku
 https://iridakos.com/programming/2019/04/04/creating-chat-application-rails-websockets
 http://expo.stimulusreflex.com/demos/tabular
 https://github.com/hopsoft/stimulus_reflex
